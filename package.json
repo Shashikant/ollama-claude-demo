@@ -1,0 +1,22 @@
+{
+  "name": "ollama-claude-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.5.1",
+    "allure-playwright": "^3.12.1",
+    "dotenv": "^17.4.2",
+    "typescript": "^7.0.2"
+  }
+}
