@@ -13,7 +13,8 @@ export default defineConfig({
   reporter: [
     ['html'],
     ['allure-playwright'],
-    ['list']
+    ['list'],
+    ['./src/reporters/jira-reporter.ts']
   ],
   use: {
     baseURL: process.env.BASE_URL || 'https://www.saucedemo.com/',
