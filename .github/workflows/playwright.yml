@@ -39,7 +39,7 @@ jobs:
         server_port: 465
         username: ${{ secrets.MAIL_USERNAME }}
         password: ${{ secrets.MAIL_PASSWORD }}
-        subject: Playwright Test Result: ${{ job.status }}
+        subject: "Playwright Test Result: ${{ job.status }}"
         body: |
           The Playwright test run has completed.
           Status: ${{ job.status }}
@@ -47,5 +47,5 @@ jobs:
           You can view the detailed report and artifacts here:
           https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         to: ${{ secrets.MAIL_RECIPIENT }}
-        from: Playwright CI <${{ secrets.MAIL_USERNAME }}>
+        from: "Playwright CI <${{ secrets.MAIL_USERNAME }}>"
 
