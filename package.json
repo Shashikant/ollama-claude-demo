@@ -18,5 +18,8 @@
     "allure-playwright": "^3.12.1",
     "dotenv": "^17.4.2",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "glob": "^13.0.6"
   }
 }

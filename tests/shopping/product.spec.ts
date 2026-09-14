@@ -8,9 +8,9 @@ test.describe('Product Tests', () => {
     await loginPage.login(user.username, user.password!);
   });
 
-  test('should display product details correctly', async ({ productsPage, productDetailsPage }) => {
+  test('should display product details correctly', async ({ productDetailsPage, page }) => {
     // Navigate to product details by clicking product name
-    await productsPage.page.locator('.inventory_item_name', { hasText: 'Sauce Labs Backpack' }).click();
+    await page.locator('.inventory_item_name', { hasText: 'Sauce Labs Backpack' }).click();
 
     const name = await productDetailsPage.getProductName();
     const price = await productDetailsPage.getProductPrice();

@@ -15,7 +15,8 @@ test.describe('US-001: Complete Product Purchase E2E', () => {
   test('should successfully complete the full purchase flow', async ({
     productsPage,
     cartPage,
-    checkoutPage
+    checkoutPage,
+    page
   }) => {
     // AC-02 & AC-03: Product Selection & Add to Cart
     await productsPage.addItemToCart('Sauce Labs Backpack');
@@ -33,7 +34,7 @@ test.describe('US-001: Complete Product Purchase E2E', () => {
     // AC-05: Checkout
     await checkoutPage.fillInformation(user.firstName!, user.lastName!, user.zipCode!);
     await checkoutPage.continueToOverview();
-    await expect(checkoutPage.page).toHaveURL(/checkout-step-two.html/);
+    await expect(page).toHaveURL(/checkout-step-two.html/);
 
     // AC-06: Order Completion
     await checkoutPage.finishPurchase();

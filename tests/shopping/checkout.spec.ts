@@ -11,17 +11,17 @@ test.describe('Checkout Tests', () => {
     await cartPage.proceedToCheckout();
   });
 
-  test('should navigate to checkout overview with valid details', async ({ checkoutPage }) => {
+  test('should navigate to checkout overview with valid details', async ({ checkoutPage, page }) => {
     const user = users.standardUser;
     await checkoutPage.fillInformation(user.firstName!, user.lastName!, user.zipCode!);
     await checkoutPage.continueToOverview();
 
-    await expect(checkoutPage.page).toHaveURL(/checkout-step-two.html/);
+    await expect(page).toHaveURL(/checkout-step-two.html/);
   });
 
-  test('should show error when details are missing', async ({ checkoutPage }) => {
+  test('should show error when details are missing', async ({ checkoutPage, page }) => {
     await checkoutPage.continueToOverview();
-    const error = await checkoutPage.page.locator('[data-test="error"]').textContent();
+    const error = await page.locator('[data-test="error"]').textContent();
     expect(error).toContain('First Name is required');
   });
 });
