@@ -30,22 +30,3 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
-
-    - name: Send email notification
-      uses: dawidd6/action-send-mail@v3
-      if: always()
-      with:
-        server_address: smtp.gmail.com
-        server_port: 465
-        username: ${{ secrets.MAIL_USERNAME }}
-        password: ${{ secrets.MAIL_PASSWORD }}
-        subject: "Playwright Test Result: ${{ job.status }}"
-        body: |
-          The Playwright test run has completed.
-          Status: ${{ job.status }}
-
-          You can view the detailed report and artifacts here:
-          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        to: ${{ secrets.MAIL_RECIPIENT }}
-        from: "Playwright CI <${{ secrets.MAIL_USERNAME }}>"
-
